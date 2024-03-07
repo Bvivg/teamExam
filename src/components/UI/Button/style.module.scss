@@ -1,0 +1,11 @@
+.navLink {
+  box-sizing: border-box;
+  padding: auto 20px;
+  text-align: center;
+  &::after {
+    content: "";
+    width: 1px;
+    height: 100%;
+    background: hsla(0, 0%, 100%, 0.1);
+  }
+}

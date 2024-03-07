@@ -1,0 +1,15 @@
+.avatar {
+  overflow: hidden;
+  border-radius: 50%;
+  .xl{
+    width: 90px;
+    height: 90px;
+  }
+  .xm{
+    width: 60px;
+    height: 60px;
+  }
+  img{
+    object-fit: cover;
+  }
+}
