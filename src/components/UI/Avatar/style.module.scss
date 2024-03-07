@@ -1,11 +1,11 @@
 .avatar {
   overflow: hidden;
   border-radius: 50%;
-  .xl{
+  &.xl{
     width: 90px;
     height: 90px;
   }
-  .xm{
+  &.xm{
     width: 60px;
     height: 60px;
   }
