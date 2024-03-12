@@ -11,7 +11,7 @@ import clsx from "clsx";
 const Header = () => {
   const [isActive, setIsActive] = useState(false);
   return (
-    <div className={styles.header_bg}>
+    <div className={styles.container}>
       <div className={styles.header}>
         <Link href="/" className={styles.logo}>
           <img src="/LogoLight.png" alt="logo" />
