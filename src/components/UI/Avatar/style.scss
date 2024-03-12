@@ -1,0 +1,27 @@
+.avatar {
+  overflow: hidden;
+  border-radius: 50%;
+  &.xl {
+    width: 90px;
+    height: 90px;
+  }
+  &.xm {
+    width: 60px;
+    height: 60px;
+  }
+  img {
+    object-fit: cover;
+  }
+}
+@media screen and (max-width: 768px) {
+  .avatar {
+    &.xl {
+      width: 60px;
+      height: 60px;
+    }
+    &.xm {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}

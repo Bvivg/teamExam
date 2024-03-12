@@ -1,0 +1,137 @@
+.header {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  color: #fff;
+  max-width: 1280px;
+  &_bg {
+    z-index: 2;
+    position: fixed;
+    background: #3c4852;
+    width: 100%;
+  }
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 0 auto;
+  &_collapse {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+}
+.balance {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  flex-direction: column;
+  &Info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    span {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+  &Action {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.hamburger {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 10px;
+  }
+  .nav {
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+    &_collapse {
+      flex-direction: column;
+      align-items: center;
+      position: absolute;
+      background: #3c4852;
+      overflow: hidden;
+      z-index: -1;
+      top: 0px;
+      right: 0;
+      transform: translateX(100%);
+      padding: 80px 20px;
+    
+      gap: 10px;
+      transition: 0.4s all;
+      width: 50%;
+      min-height: 100dvh;
+      &.active {
+        transform: translateX(0%);
+      }
+    }
+  }
+  .profile {
+    gap: 5px;
+    flex-direction: column;
+    button {
+      width: 100%;
+    }
+  }
+  .hamburger {
+    display: block;
+    width: 60px;
+    margin-left: auto;
+    position: relative;
+    height: 60px;
+    padding: 0;
+    span {
+      top: 0px;
+      border-radius: 10px;
+      background: #ffcc80;
+      display: inline-block;
+      height: 3px;
+      position: absolute;
+      width: 100%;
+      transition: 0.4s all;
+      &:nth-child(1) {
+        top: 15px;
+      }
+      &:nth-child(2) {
+        top: 30px;
+      }
+      &:nth-child(3) {
+        top: 45px;
+      }
+    }
+    &.active {
+      span {
+        &:nth-child(1) {
+          top: 30px;
+          transform: rotate(45deg);
+        }
+        &:nth-child(2) {
+          top: 30px;
+          transform: rotate(45deg);
+        }
+        &:nth-child(3) {
+          top: 30px;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+}

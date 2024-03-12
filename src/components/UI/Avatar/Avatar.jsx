@@ -1,9 +1,9 @@
+import clsx from "clsx";
 import React from "react";
-
+import "./style.scss";
 const Avatar = ({ imgPath, imgSize }) => {
-  const img = ["avatar", imgSize];
   return (
-    <div className={img}>
+    <div className={clsx("avatar", imgSize)}>
       <img src={imgPath} />
     </div>
   );
