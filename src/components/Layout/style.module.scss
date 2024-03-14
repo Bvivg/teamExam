@@ -1,27 +1,71 @@
 .container {
   z-index: 2;
+  height: max-content;
   background: #3c4852;
-  width: 100%;
+  max-width: 100%;
+  &_footer_light {
+    background: transparent;
+    margin-top: auto;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 100px;
+    &_bg {
+      top: 0;
+      position: absolute;
+    }
+    // &::before {
+    //   background: #000;
+    //   z-index: 1;
+    //   content: "";
+    //   position: absolute;
+    //   height: 100%;
+    //   top: -50%;
+    //   width: 60%;
+    //   left: -10%;
+    //   border-radius: 50%;
+    // }
+    // &::after {
+    //   background: #000;
+    //   content: "";
+    //   z-index: 1;
+    //   position: absolute;
+    //   height: 100%;
+    //   top: 0%;
+    //   width: 70%;
+    //   right: -10%;
+    //   border-radius: 50%;
+    // }
+  }
+ 
 }
 .header,
 .footer {
   display: flex;
+  position: sticky;
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
-  padding: 5px;
+  padding: 10px;
   z-index: 9;
+  width: 100%;
+  box-sizing: border-box;
   color: #fff;
   max-width: 1280px;
   &Action {
     display: flex;
+    grid-area: third;
     align-items: center;
     gap: 10px;
+  }
+  &_none {
+    display: none;
   }
 }
 .payment {
   display: flex;
   align-items: center;
+  grid-area: first;
   gap: 10px;
   span {
     font-weight: 600;
@@ -32,19 +76,26 @@
   font-weight: 400;
   font-size: 14px;
   color: #80878d;
+  grid-area: second;
 }
 .logo {
   z-index: 99;
+  margin: 0 auto;
 }
 .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  margin: 0 auto;
+  margin-left: auto;
+  &_light {
+    color: #3c4852;
+  }
   &_collapse {
+    z-index: 2;
     display: flex;
     width: 100%;
+    gap: 10px;
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
@@ -82,9 +133,37 @@
   z-index: 99;
 }
 @media screen and (max-width: 768px) {
+  .logo {
+    margin: 0;
+  }
   .header,
   .footer {
     padding: 10px;
+    z-index: 1;
+    &Action {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  .footer {
+    display: grid;
+    margin-top: auto;
+    grid-template-areas:
+    
+      "first second"
+      "first third";
+    grid-template-rows: auto auto;
+    gap: 5px;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      background: #3c4852;
+      width: 100%;
+      height: 50px;
+      bottom: 0;
+      z-index: -1;
+    }
   }
   .nav {
     flex-direction: column;
@@ -95,8 +174,7 @@
       align-items: center;
       position: absolute;
       background: #3c4852;
-      overflow: hidden;
-      z-index: 2;
+      z-index: 9;
       top: 0px;
       right: 0;
       transform: translateX(100%);
@@ -166,8 +244,8 @@
     align-items: start;
   }
   .payment {
-    // display: grid;
-    // grid-template-columns: repeat(150px, 2fr);
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 5px;
   }
 }
