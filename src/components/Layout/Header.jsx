@@ -16,9 +16,11 @@ import Button from "../UI/Button/Button";
 import Avatar from "../UI/Avatar/Avatar";
 import Link from "next/link";
 import clsx from "clsx";
+import { useTheme } from "@/context/ThemeContext";
 
-const Header = ({ theme }) => {
+const Header = () => {
   const [isActive, setIsActive] = useState(false);
+  const {theme} = useTheme()
 
   return (
     <div

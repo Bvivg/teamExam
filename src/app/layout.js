@@ -3,6 +3,8 @@ import "./globals.css";
 import Header from "@/components/Layout/Header";
 import Footer from "@/components/Layout/Footer";
 import clsx from "clsx";
+import { useContext } from "react";
+import ThemeContext, { ThemeProvider } from "@/context/ThemeContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -13,13 +15,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={clsx(inter.className, "body")}>
-        <Header theme="default" />
-        <div className="page">
-          {children}
-        </div>
-        <Footer theme="default" />
-      </body>
+      <ThemeProvider>
+        <body className={clsx(inter.className, "body")}>
+          <Header />
+          <div className="page">
+            {children}
+          </div>
+          <Footer />
+        </body>
+      </ThemeProvider>
     </html>
   );
 }

@@ -93,5 +93,9 @@ body{
   min-height: 100dvh;
   display: grid;
   overflow-x: hidden;
-
+}
+.page {
+  margin: 0 auto;
+  max-width: 1200px;
+  height: 100vh;
 }
