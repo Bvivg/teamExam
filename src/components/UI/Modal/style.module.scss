@@ -1,0 +1,32 @@
+.modal {
+  max-width: 450px;
+  height: max-content;
+  z-index: 999;
+  background: #fff;
+  border-radius: 10px;
+  transition: 0.6s all;
+  padding: 72px;
+  position: relative;
+  box-sizing: border-box;
+  &_backdrop {
+    transform: scale(1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    z-index: 999;
+    height: 100vh;
+    background: #3c4852;
+  }
+  & &_closed {
+    transform: scale(0);
+  }
+  &_button {
+    top: 20px;
+    right: 20px;
+    position: absolute;
+  }
+}

@@ -7,8 +7,10 @@ button {
   display: flex;
   align-items: center;
   gap: 10px;
+  justify-content: center;
 }
 .primary {
+  text-align: center;
   background: #ffcc80;
   color: #3c4852;
   font-weight: 700;
@@ -19,6 +21,11 @@ button {
   &.xm {
     font-size: 20px;
     padding: 8px 16px;
+  }
+  &.special {
+    font-size: 18px;
+    width: 100%;
+    padding: 16px 18px;
   }
 }
 .secondary {

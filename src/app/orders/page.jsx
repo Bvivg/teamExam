@@ -1,11 +1,17 @@
-import React from 'react'
-
+"use client";
+import { useTheme } from "@/context/ThemeContext";
+import { useEffect, useState } from "react";
+import styles from "./style.module.scss"
 const page = () => {
+  const { changeTheme } = useTheme();
+  useEffect(() => {
+    changeTheme("default");
+  }, []);
   return (
-    <div>
-      order
+    <div className={styles.page}>
+ 
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;

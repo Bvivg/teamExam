@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
       <ThemeProvider>
         <body className={clsx(inter.className, "body")}>
           <Header />
-          <div className="page">
+          <div className="container">
             {children}
           </div>
           <Footer />

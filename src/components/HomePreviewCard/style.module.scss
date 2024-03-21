@@ -1,0 +1,56 @@
+.cardText {
+  color: #3c4852;
+  font-size: 18px;
+  span {
+    font-weight: 700;
+  }
+}
+
+.card {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-direction: column;
+  width: 250px;
+  
+  margin: 0 auto;
+  &Icon {
+    width: 100%;
+    &.light {
+      border-radius: 50%;
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f8f8f8;
+    }
+    &.orange {
+      position: relative;
+      height: 400px;
+      overflow: hidden;
+      border-bottom-left-radius: 130px;
+      border-bottom-right-radius: 130px;
+      img {
+        position: absolute;
+        left: 0;
+        top: 0%;
+        height: auto;
+        width: 100%;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        border-radius: 50%;
+        height: 250px;
+        width: 100%;
+        background: #ffcc80;
+      }
+      & ~ .cardText span{
+        color: #ffcc80;
+      }
+    }
+  }
+}
