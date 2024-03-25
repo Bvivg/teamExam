@@ -6,11 +6,12 @@ button {
   border-radius: 10px;
   display: flex;
   align-items: center;
+  width: max-content;
   gap: 10px;
   justify-content: center;
+  text-align: center;
 }
 .primary {
-  text-align: center;
   background: #ffcc80;
   color: #3c4852;
   font-weight: 700;
@@ -19,13 +20,23 @@ button {
     padding: 16px 18px;
   }
   &.xm {
-    font-size: 20px;
+    font-size: 14px;
     padding: 8px 16px;
   }
-  &.special {
+}
+.fourth {
+  background: transparent;
+  color: #3c4852;
+  border: 1px solid #ffcc80;
+  &.xl {
     font-size: 18px;
-    width: 100%;
+    font-weight: 700;
     padding: 16px 18px;
+  }
+  &.xm {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 16px;
   }
 }
 .secondary {
@@ -54,7 +65,22 @@ button {
     font-size: 14px;
   }
 }
+.save {
+  padding: 16px 40px;
+  color: #fff;
+  background: #66b87a;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 18px;
+
+}
 @media screen and (max-width: 768px) {
+  .save {
+    padding: 10px 20px;
+    color: #fff;
+    background: #66b87a;
+    border-radius: 10px;
+  }
   .primary {
     font-weight: 600;
     &.xl {

@@ -1,8 +1,9 @@
+import clsx from 'clsx';
 import styles from './style.module.scss'
 
-const Input = ({ type, name, placeholder, icon, onChange, value }) => {
+const Input = ({type, name, placeholder, icon, onChange, value }) => {
   return (
-    <label className={styles.input}>
+    <label className={clsx(styles.input)}>
       <input type={type} name={name} placeholder={placeholder} onChange={onChange} value={value}/>
       {icon}
     </label>

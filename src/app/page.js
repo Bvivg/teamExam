@@ -95,7 +95,6 @@ export default function Home() {
     changeTheme("light")
   }, []);
 
-
   return (
     <div className="page">
       <HomePreview cardInfo={bannerInfo.advantages} />

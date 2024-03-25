@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ChatIcon,
   SettingsIcon,
@@ -19,44 +19,67 @@ import clsx from "clsx";
 import { useTheme } from "@/context/ThemeContext";
 import Modal from "../UI/Modal/Modal";
 import Form from "../UI/Auth/Auth";
+import { getUserId, logout } from "@/api/request";
 
 const Header = () => {
   const [isActive, setIsActive] = useState(false);
+  const [isOpened, setIsOpened] = useState(false);
+  const [userId, setUserId] = useState(null);
+  const openModal = () => {
+    setIsOpened(true);
+  };
+  const closeModal = () => {
+    setIsOpened(false);
+  };
+
   const { theme } = useTheme();
-
+  useEffect(() => {
+    getUserId()
+      .then((userIdRaw) => {
+        setUserId(2);
+      })
+      .catch((error) => {
+        console.error("Error getting user ID:", error);
+      });
+  }, []);
+  console.log(userId);
   if (theme !== "none") {
-
     return (
       <div
         className={
-          theme === "default" || theme === "cursed"
+          userId === null
+            ? styles.container_light
+            : theme === "default" || theme === "cursed" || theme === "light"
             ? styles.container
-            : styles.container_light
+            : null
         }
       >
-        <Modal opened={true}><Form type="register"></Form></Modal>
+        <Modal opened={isOpened} onClose={closeModal}>
+          <Form type="login" />
+        </Modal>
         <div className={styles.header}>
           <Link href="/" className={styles.logo}>
-            {theme === "default" || theme === "cursed" ? (
-              <LogoLight />
-            ) : theme === "light" ? (
+            {userId === null ? (
               <LogoDark />
+            ) : theme === "default" ||
+              theme === "cursed" ||
+              theme === "light" ? (
+              <LogoLight />
             ) : (
               ""
             )}
           </Link>
-          {theme === "default" ? (
-            <div
-              className={clsx(styles.hamburger, isActive ? styles.active : "")}
-              onClick={() => {
-                setIsActive(!isActive);
-              }}
-            >
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-          ) : theme === "light" ? (
+          <div
+            className={clsx(styles.hamburger, isActive ? styles.active : "")}
+            onClick={() => {
+              setIsActive(!isActive);
+            }}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          {userId === null ? (
             <div
               className={clsx(styles.nav_collapse, styles.nav_collapse_light)}
             >
@@ -65,66 +88,66 @@ const Header = () => {
                 <NavLink to="/support">
                   <SupportIcon /> Поддержка
                 </NavLink>
-                <Button primary="primary" size="xl">
+                <Button click={openModal} primary="primary" size="xl">
                   Войти <UserIcon />
                 </Button>
               </nav>
             </div>
           ) : (
-            ""
-          )}
-          {theme === "default" ? (
-            <div
-              className={clsx(
-                styles.nav_collapse,
-                isActive ? styles.active : ""
-              )}
-            >
-              <div className={styles.balance}>
-                <div className={styles.balanceInfo}>
-                  <span>
-                    <MoneyIcon /> Баланс:
-                  </span>
-                  <Button primary="primary" size="xm">
-                    1234 ₽
-                  </Button>
+            ((theme === "default" && userId) ||
+              (theme === "light" && userId)) && (
+              <div
+                className={clsx(
+                  styles.nav_collapse,
+                  isActive ? styles.active : ""
+                )}
+              >
+                <div className={styles.balance}>
+                  <div className={styles.balanceInfo}>
+                    <span>
+                      <MoneyIcon /> Баланс:
+                    </span>
+                    <Button primary="primary" size="xm">
+                      1234 ₽
+                    </Button>
+                  </div>
+                  <div className={styles.balanceAction}>
+                    <Button primary="tertiary" size="xm">
+                      Пополнить
+                    </Button>
+                    <Button primary="tertiary" size="xm">
+                      Вывести
+                    </Button>
+                  </div>
                 </div>
-                <div className={styles.balanceAction}>
-                  <Button primary="tertiary" size="xm">
-                    Пополнить
+                <nav className={styles.nav}>
+                  <NavLink to="/support">
+                    <ChatIcon /> Поддержка
+                  </NavLink>
+                  <NavLink to="/orders">
+                    <PhoneIcon /> Мои заказы
+                  </NavLink>
+                  <NavLink to="/settings">
+                    <SettingsIcon /> Настройки
+                  </NavLink>
+                </nav>
+                <div className={styles.profile}>
+                  <Button primary="primary" size="xl">
+                    Разместить заказ
                   </Button>
-                  <Button primary="tertiary" size="xm">
-                    Вывести
+                  <Avatar imgPath="/LogoLight.png" imgSize="xm" />
+                  <Button primary="tertiary" size="xl" click={logout}>
+                    Выйти
                   </Button>
                 </div>
               </div>
-              <nav className={styles.nav}>
-                <NavLink to="/support">
-                  <ChatIcon /> Поддержка
-                </NavLink>
-                <NavLink to="/orders">
-                  <PhoneIcon /> Мои заказы
-                </NavLink>
-                <NavLink to="/settings">
-                  <SettingsIcon /> Настройки
-                </NavLink>
-              </nav>
-              <div className={styles.profile}>
-                <Button primary="primary" size="xl">
-                  Разместить заказ
-                </Button>
-                <Avatar imgPath="/LogoLight.png" imgSize="xm"></Avatar>
-                <Button primary="tertiary" size="xl">
-                  Выйти
-                </Button>
-              </div>
-            </div>
-          ) : (
-            ""
+            )
           )}
         </div>
       </div>
     );
+  } else {
+    return null;
   }
 };
 

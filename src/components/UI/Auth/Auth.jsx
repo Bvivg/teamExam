@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import Input from "../Input/Input";
+import Input from "../InputForm/InputForm";
 import { EmailIcon, LogoDark, PasswordIcon, UsernameIcon } from "@/icons/Icons";
 import styles from "./style.module.scss";
-import { register } from "@/api/request";
+import { logIn, register } from "@/api/request";
 import Button from "../Button/Button";
+import { handleChange } from "@/utils/HandleChange";
 
 const Form = ({ type }) => {
   const [authForm, setAuthForm] = useState({
@@ -13,30 +14,35 @@ const Form = ({ type }) => {
     confirmPassword: "",
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setAuthForm((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
+  const [errorMessage, setErrorMessage] = useState("");
   const handleRegister = async (e) => {
     e.preventDefault();
     if (authForm.password !== authForm.confirmPassword) {
-      console.log("Пароли не совпадают");
+      setErrorMessage("Пароли не совпадают");
       return;
     }
-    register(authForm);
-    console.log(authForm);
+    try {
+      await register(authForm);
+      setAuthType("login");
+    } catch (error) {
+      setErrorMessage(error);
+    }
   };
 
-  const handleLogin = (e) => {};
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      await logIn(authForm);
+    } catch (error) {
+      setErrorMessage(error);
+    }
+  };
 
+  const [authType, setAuthType] = useState(type);
   return (
     <form
       className={styles.form}
-      onSubmit={type === "register" ? handleRegister : handleLogin}
+      onSubmit={authType === "register" ? handleRegister : handleLogin}
     >
       <LogoDark />
       <Input
@@ -45,16 +51,16 @@ const Form = ({ type }) => {
         name="username"
         type="text"
         value={authForm.username}
-        onChange={handleChange}
+        onChange={(e) => handleChange(e, setAuthForm)}
       />
-      {type === "register" ? (
+      {authType === "register" ? (
         <Input
           placeholder="Электронная почта"
           icon={<EmailIcon />}
           name="email"
           type="email"
           value={authForm.email}
-          onChange={handleChange}
+          onChange={(e) => handleChange(e, setAuthForm)}
         />
       ) : null}
       <Input
@@ -63,21 +69,36 @@ const Form = ({ type }) => {
         name="password"
         type="password"
         value={authForm.password}
-        onChange={handleChange}
+        onChange={(e) => handleChange(e, setAuthForm)}
       />
-      {type === "register" ? (
+      {authType === "register" ? (
         <Input
           placeholder="Подтвердите пароль"
           icon={<PasswordIcon />}
           name="confirmPassword"
           type="password"
           value={authForm.confirmPassword}
-          onChange={handleChange}
+          onChange={(e) => handleChange(e, setAuthForm)}
         />
       ) : null}
-      <Button primary="primary" size="special">
-        {type === "register" ? "РЕГИСТРАЦИЯ" : "ВХОД"}
-      </Button>
+      <div className={styles.auth_action}>
+        <Button primary="primary" type="submit" size="xl">
+          {authType === "register" ? "РЕГИСТРАЦИЯ" : "ВХОД"}
+        </Button>
+        <Button
+          primary="fourth"
+          type="button"
+          size="xl"
+          click={() =>
+            authType === "register"
+              ? setAuthType("login")
+              : setAuthType("register")
+          }
+        >
+          {authType === "login" ? "РЕГИСТРАЦИЯ" : "ВХОД"}
+        </Button>
+      </div>
+      <div className={styles.error}>{errorMessage}</div>
     </form>
   );
 };

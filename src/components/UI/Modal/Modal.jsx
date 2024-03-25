@@ -2,22 +2,21 @@ import React, { useState } from "react";
 import styles from "./style.module.scss";
 import clsx from "clsx";
 
-const Modal = ({ opened, children }) => {
-  const [isOpen, setIsOpen] = useState(opened);
+const Modal = ({ opened, onClose, children }) => {
 
-  const handleClose = () => {
-    setIsOpen(!opened);
-  };
+  if (!opened) {
+    return false;
+  }
 
   return (
     <div
       className={clsx(
         styles.modal_backdrop,
-        !isOpen ? styles.modal_closed : null
+        !opened ? styles.modal_closed : null
       )}
     >
       <div className={styles.modal}>
-        <button className={styles.modal_button} onClick={handleClose}>
+        <button className={styles.modal_button} onClick={onClose}>
           ╳
         </button>
         <div className={styles.modal_content}>{children}</div>
