@@ -2,6 +2,7 @@
 import { useTheme } from "@/context/ThemeContext";
 import styles from "./style.module.scss";
 import Order from "@/components/UI/Order/Order";
+import PageTitle from "@/components/UI/PageTitle/PageTitle";
 const page = () => {
   const ordersData = [
     {
@@ -34,6 +35,7 @@ const page = () => {
   changeTheme("default");
   return (
     <div className={styles.page}>
+      <PageTitle title="Мои заказы" />
       <div className={styles.list}>
         {ordersData.map((order, index) => (
           <Order

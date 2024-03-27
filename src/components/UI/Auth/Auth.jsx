@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Input from "../InputForm/InputForm";
 import { EmailIcon, LogoDark, PasswordIcon, UsernameIcon } from "@/icons/Icons";
 import styles from "./style.module.scss";
-import { logIn, register } from "@/api/request";
+import { fetchUserById, fetchUserMe, getUserId, logIn, register } from "@/api/request";
 import Button from "../Button/Button";
 import { handleChange } from "@/utils/HandleChange";
 
@@ -24,6 +24,7 @@ const Form = ({ type }) => {
     try {
       await register(authForm);
       setAuthType("login");
+      setErrorMessage("");
     } catch (error) {
       setErrorMessage(error);
     }
@@ -33,11 +34,16 @@ const Form = ({ type }) => {
     e.preventDefault();
     try {
       await logIn(authForm);
+      setErrorMessage("");
+      console.log(fetchUserMe())
     } catch (error) {
       setErrorMessage(error);
     }
   };
-
+  function switcher() {
+    authType === "register" ? setAuthType("login") : setAuthType("register");
+    setErrorMessage("");
+  }
   const [authType, setAuthType] = useState(type);
   return (
     <form
@@ -85,20 +91,11 @@ const Form = ({ type }) => {
         <Button primary="primary" type="submit" size="xl">
           {authType === "register" ? "РЕГИСТРАЦИЯ" : "ВХОД"}
         </Button>
-        <Button
-          primary="fourth"
-          type="button"
-          size="xl"
-          click={() =>
-            authType === "register"
-              ? setAuthType("login")
-              : setAuthType("register")
-          }
-        >
+        <Button primary="fourth" type="button" size="xl" click={switcher}>
           {authType === "login" ? "РЕГИСТРАЦИЯ" : "ВХОД"}
         </Button>
       </div>
-      <div className={styles.error}>{errorMessage}</div>
+      {/* <div className={styles.error}>{errorMessage}</div> */}
     </form>
   );
 };

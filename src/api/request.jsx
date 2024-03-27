@@ -1,6 +1,5 @@
 import axios from "axios";
-
-const baseURL = "http://127.0.0.1:8000/api/";
+const baseURL = "http://127.0.0.1/api/";
 
 const request = async (method, url, data = null) => {
   try {
@@ -8,6 +7,7 @@ const request = async (method, url, data = null) => {
       method,
       url: baseURL + url,
       data,
+      withCredentials: true
     });
     console.log(response);
     return response.data;
@@ -26,7 +26,7 @@ export const logIn = async (data) => {
 };
 
 export const logout = async () => {
-  return request("post", "logout/");
+  return request("get", "logout/");
 };
 
 export const getUserId = async () => {
@@ -40,7 +40,9 @@ export const fetchAllUsers = async () => {
 export const fetchUserById = async (id) => {
   return request("get", `users/${id}`);
 };
-
+export const fetchUserMe = async () => {
+  return request("get", "users/me");
+};
 export const updateUser = async (id, data) => {
   return request("put", `users/${id}`, data);
 };

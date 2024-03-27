@@ -19,7 +19,7 @@ import clsx from "clsx";
 import { useTheme } from "@/context/ThemeContext";
 import Modal from "../UI/Modal/Modal";
 import Form from "../UI/Auth/Auth";
-import { getUserId, logout } from "@/api/request";
+import { fetchUserById, fetchUserMe, getUserId, logout } from "@/api/request";
 
 const Header = () => {
   const [isActive, setIsActive] = useState(false);
@@ -34,14 +34,9 @@ const Header = () => {
 
   const { theme } = useTheme();
   useEffect(() => {
-    getUserId()
-      .then((userIdRaw) => {
-        setUserId(2);
-      })
-      .catch((error) => {
-        console.error("Error getting user ID:", error);
-      });
+    console.log(fetchUserMe());
   }, []);
+
   console.log(userId);
   if (theme !== "none") {
     return (
@@ -132,9 +127,11 @@ const Header = () => {
                   </NavLink>
                 </nav>
                 <div className={styles.profile}>
-                  <Button primary="primary" size="xl">
-                    Разместить заказ
-                  </Button>
+                  <Link href="/FindOrders">
+                    <Button primary="primary" size="xl">
+                      Найти заказ
+                    </Button>
+                  </Link>
                   <Avatar imgPath="/LogoLight.png" imgSize="xm" />
                   <Button primary="tertiary" size="xl" click={logout}>
                     Выйти
