@@ -21,6 +21,7 @@
     align-items: end;
   }
 }
+
 .title {
   font-weight: 600;
   font-size: 22px;
@@ -32,7 +33,7 @@
   gap: 10px;
   color: #8e8d8d;
   svg {
-    path{
+    path {
       fill: #8e8d8d;
     }
   }
@@ -51,7 +52,6 @@
   &:last-child {
     display: flex;
     gap: 10px;
-
     align-items: center;
   }
 }
@@ -75,9 +75,84 @@
   width: 54%;
   margin-top: 20px;
 }
+.messagesList {
+  display: flex;
+  height: 300px;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+      width: 10px;
+    &-track {
+      width: 10px;
+      border-radius: 10px;
+      background: #ffcc80;
+    }
+    &-thumb {
+      background: #3c4852;
+      border-radius: 10px;
+      width: 6px;
+    }
+  }
+}
+
+.form {
+  margin-top: auto;
+  bottom: 0;
+  position: sticky;
+  label > svg {
+    min-width: 47px;
+    min-height: 47px;
+    margin-right: 10px;
+    rect {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
 .feedback {
   justify-content: space-between;
   width: 100%;
   display: flex;
   align-items: start;
+}
+@media screen and (max-width: 768px) {
+  .feedback {
+    flex-direction: column;
+  }
+  .page {
+    padding: 10px;
+  }
+  .application {
+    width: 100%;
+  }
+  .chat {
+    width: 100%;
+  }
+  .order {
+    padding: 10px;
+    &Info {
+      display: flex;
+      align-items: start;
+      gap: 5px;
+      flex-direction: column;
+    }
+    &SubType {
+      color: #8e8d8d;
+      font-size: 13px;
+    }
+  }
+  .title {
+    font-weight: 600;
+    font-size: 18px;
+    color: #66b87a;
+  }
+  .price {
+    font-size: 14px;
+    color: #3c4852;
+    span {
+      font-weight: 700;
+      color: #66b87a;
+    }
+  }
 }

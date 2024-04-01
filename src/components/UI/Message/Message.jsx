@@ -2,15 +2,11 @@
 import clsx from "clsx";
 import styles from "./style.module.scss";
 import { RightArrow } from "@/icons/Icons";
-import { useState } from "react";
-import { fetchUserById } from "@/api/request";
+
 import Avatar from "../Avatar/Avatar";
 
-const Message = ({ from, to, message, time }) => {
-    const [userId, setUserId] = useState(null);
-    fetchUserById().then((user) => {
-        setUserId(user.id);
-    });
+const Message = ({ from, to, message, time, userId }) => {
+
     const users = [
         { id: 1, username: "Alice" },
         { id: 2, username: "Bob" },

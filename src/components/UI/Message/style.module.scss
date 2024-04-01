@@ -6,6 +6,9 @@
   max-width: 60%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  word-wrap: break-word;
+  overflow: hidden;
+  word-break: break-all;
   position: relative;
   &Wrapper {
     display: flex;
@@ -70,5 +73,7 @@
   }
 }
 .time {
+  word-wrap: normal;
+  word-break: normal;
   color: #8e8d8d;
 }

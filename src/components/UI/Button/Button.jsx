@@ -1,9 +1,14 @@
-"use client";
 import clsx from "clsx";
 import "./style.scss";
-const Button = ({ children, primary, size, click, type }) => {
+
+const Button = ({ children, primary, size, click, type, isDisabled }) => {
   return (
-    <button onClick={click} type={type} className={clsx(primary, size)}>
+    <button
+      onClick={click}
+      type={type}
+      disabled={isDisabled}
+      className={clsx({ [primary]: primary, [size]: size })}
+    >
       {children}
     </button>
   );
