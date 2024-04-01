@@ -1,10 +1,12 @@
 .navLink {
   box-sizing: border-box;
-  padding: auto 20px;
+  font-size: 16px;
+  font-weight: 700;
   display: flex;
   align-items: center;
   position: relative;
   gap: 11px;
+
   text-align: center;
   &::after {
     content: "";
@@ -14,7 +16,7 @@
     border-radius: 10px;
     height: 3px;
     transition: 0.6s all;
-    bottom: -10px;
+    bottom: -5px;
     left: 0%;
     background: #ffcc80;
   }
@@ -32,7 +34,7 @@
       border-radius: 10px;
       height: 3px;
       transition: 0.6s all;
-      bottom: -10px;
+      bottom: -5px;
       left: 0%;
       background: #ffcc80;
     }
@@ -42,15 +44,10 @@
 @media screen and (max-width: 768px) {
   .navLink {
     box-sizing: border-box;
-    padding: auto 20px;
     display: flex;
     align-items: center;
     gap: 11px;
     text-align: center;
-    &:hover {
-      &::after {
-        display: none;
-      }
-    }
+  
   }
 }

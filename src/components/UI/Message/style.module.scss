@@ -1,0 +1,74 @@
+.message {
+  padding: 15px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  max-width: 60%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  position: relative;
+  &Wrapper {
+    display: flex;
+    align-items: end;
+    gap: 15px;
+    &.me {
+      flex-direction: row-reverse;
+    }
+    &.companion {
+      flex-direction: row;
+    }
+  }
+  &Block {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+  }
+  &.me {
+    color: #fff;
+    background: #3c4852;
+    border-bottom-left-radius: 10px;
+    &::after {
+      width: 0px;
+      height: 0px;
+      content: "";
+      border-top: 0;
+      border-right: 10px solid #fff;
+      border-left: 0;
+      border-bottom: 10px solid #3c4852;
+      position: absolute;
+      bottom: 0;
+      right: -9px;
+    }
+  }
+  &.companion {
+    color: #3c4852;
+    background: #f8f8f8;
+    border-bottom-right-radius: 10px;
+    &::before {
+      width: 0px;
+      height: 0px;
+      content: "";
+      border-top: 0;
+      border-left: 10px solid #fff;
+      border-right: 0;
+      border-bottom: 10px solid #f8f8f8;
+      position: absolute;
+      bottom: 0;
+      left: -9px;
+    }
+  }
+}
+.fromto {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #8e8d8d;
+  svg {
+    path {
+      fill: #8e8d8d;
+    }
+  }
+}
+.time {
+  color: #8e8d8d;
+}

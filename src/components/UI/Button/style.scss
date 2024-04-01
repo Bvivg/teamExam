@@ -1,24 +1,46 @@
+button {
+  // overflow: hidden;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  width: max-content;
+  gap: 10px;
+  justify-content: center;
+  text-align: center;
+}
 .primary {
   background: #ffcc80;
   color: #3c4852;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
   font-weight: 700;
   &.xl {
     font-size: 18px;
     padding: 16px 18px;
   }
   &.xm {
-    font-size: 20px;
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+.fourth {
+  background: transparent;
+  color: #3c4852;
+  border: 1px solid #ffcc80;
+  &.xl {
+    font-size: 18px;
+    font-weight: 700;
+    padding: 16px 18px;
+  }
+  &.xm {
+    font-size: 14px;
+    font-weight: 600;
     padding: 8px 16px;
   }
 }
 .secondary {
-  border: none;
   border: 1px solid #e7e7e7;
-  cursor: pointer;
-  background: transparent;
   color: #e7e7e7;
   &.xl {
     font-size: 18px;
@@ -26,20 +48,16 @@
   }
   &.xm {
     font-size: 14px;
-    padding: 7px 21px;
+    padding: 7px 40px;
   }
 }
+
 .tertiary {
-  border: none;
   border: 1px solid #80878d;
-  cursor: pointer;
-  border-radius: 10px;
   color: #fff;
   font-weight: 600;
-  background: transparent;
   &.xl {
     padding: 14px 24px;
-
     font-size: 18px;
   }
   &.xm {
@@ -47,7 +65,22 @@
     font-size: 14px;
   }
 }
+.save {
+  padding: 16px 40px;
+  color: #fff;
+  background: #66b87a;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 18px;
+
+}
 @media screen and (max-width: 768px) {
+  .save {
+    padding: 10px 20px;
+    color: #fff;
+    background: #66b87a;
+    border-radius: 10px;
+  }
   .primary {
     font-weight: 600;
     &.xl {

@@ -1,0 +1,71 @@
+/* style.module.scss */
+
+.order {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 40px;
+  align-items: baseline;
+  background: #fff;
+  border-radius: 10px;
+  &Info {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    gap: 10px;
+    &Block {
+      font-weight: 600;
+      color: #8e8d8d;
+    }
+  }
+  &Status {
+    display: flex;
+    align-items: start;
+    gap: 10px;
+    flex-direction: column;
+  }
+}
+
+.price {
+  color: #66b87a;
+  font-weight: 700;
+
+  &Block {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    color: #3c4852;
+  }
+}
+
+.title {
+  font-weight: 600;
+  font-size: 22px;
+  color: #66b87a;
+  &.competention {
+    color: #3c4852;
+  }
+  &.canceled {
+    color: #ec5760;
+  }
+}
+
+.author {
+  font-weight: 600;
+  color: #8e8d8d;
+}
+
+.status {
+  &Competention {
+    font-weight: 600;
+    font-size: 18px;
+    color: #e1b26c;
+  }
+  &Canceled {
+    font-weight: 600;
+    font-size: 18px;
+    color: #ec5760;
+  }
+}

@@ -1,0 +1,17 @@
+.input {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 17px 30px;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  max-width: 100%;
+  input, textarea {
+    outline: none;
+    width: 100%;
+    border: none;
+    background: transparent;
+  }
+}

@@ -1,0 +1,107 @@
+.page {
+  padding: 20px 60px;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 10px;
+}
+.userInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  color: #3c4852;
+  span {
+    font-weight: 600;
+  }
+  &Block {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    &Name {
+      font-weight: 600;
+      font-size: 20px;
+    }
+    &Email {
+      font-size: 16px;
+    }
+  }
+  &Id {
+    color: #8e8d8d;
+  }
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  &Control {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, auto);
+    gap: 10px;
+    label:first-child {
+      grid-column: span 2;
+    }
+  }
+}
+.changePassword {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+  flex-direction: column;
+  width: 100%;
+  &Form {
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    label {
+      width: 30%;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .page {
+    padding: 0 5px;
+  }
+  .userInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: baseline;
+    color: #3c4852;
+    span {
+      font-weight: 600;
+    }
+    &Block {
+      display: flex;
+      align-items: start;
+      flex-direction: column;
+      &Name {
+        font-weight: 600;
+        font-size: 16px;
+      }
+      &Email {
+        font-size: 12px;
+      }
+    }
+    &Id {
+      color: #8e8d8d;
+    }
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    &Control {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(3, auto);
+      gap: 10px;
+      label {
+        grid-column: span 2;
+      }
+    }
+  }
+}
