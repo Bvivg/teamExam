@@ -145,11 +145,11 @@
       flex-direction: column;
     }
   }
+
   .footer {
     display: grid;
     margin-top: auto;
     grid-template-areas:
-    
       "first second"
       "first third";
     grid-template-rows: auto auto;
@@ -172,7 +172,7 @@
     &_collapse {
       flex-direction: column;
       align-items: center;
-      position: absolute;
+      position: fixed;
       background: #3c4852;
       z-index: 9;
       top: 0px;

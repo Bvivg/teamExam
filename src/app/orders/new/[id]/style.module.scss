@@ -1,0 +1,83 @@
+.order {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 40px;
+  background: #fff;
+  border-radius: 10px;
+  &Info {
+    display: flex;
+    align-items: start;
+    gap: 10px;
+    flex-direction: column;
+  }
+  &SubType {
+    color: #8e8d8d;
+  }
+  &Status {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+  }
+}
+.title {
+  font-weight: 600;
+  font-size: 22px;
+  color: #66b87a;
+}
+.date {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #8e8d8d;
+  svg {
+    path{
+      fill: #8e8d8d;
+    }
+  }
+}
+.price {
+  font-size: 20px;
+  color: #3c4852;
+  span {
+    font-weight: 700;
+    color: #66b87a;
+  }
+}
+
+.inputControl {
+  width: 100%;
+  &:last-child {
+    display: flex;
+    gap: 10px;
+
+    align-items: center;
+  }
+}
+.application {
+  display: flex;
+  align-items: start;
+  gap: 20px;
+  flex-direction: column;
+  width: 44%;
+  margin-top: 20px;
+}
+.chat {
+  background: #fff;
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid #d5d5d5;
+  width: 54%;
+  margin-top: 20px;
+}
+.feedback {
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
+  align-items: start;
+}

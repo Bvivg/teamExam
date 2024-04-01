@@ -14,7 +14,7 @@ const NewOrder = ({ title, type, subject, date, id }) => {
       </div>
       <div className={styles.orderStatus}>
         <span className={styles.date}>Сделать до {date}</span>
-        <Link href={`/FindOrders/${id}`}>
+        <Link href={`/orders/new/${id}`}>
           <Button primary="fourth" size="xm">Подробнее</Button>
         </Link>
       </div>

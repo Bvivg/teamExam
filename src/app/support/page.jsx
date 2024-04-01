@@ -5,7 +5,7 @@ import Ticket from "@/components/UI/Ticket/Ticket";
 import PageTitle from "@/components/UI/PageTitle/PageTitle";
 import Button from "@/components/UI/Button/Button";
 import { RightArrow } from "@/icons/Icons";
-const page = () => {
+const Support = () => {
   const { changeTheme } = useTheme();
   const tickets = [
     {
@@ -175,4 +175,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Support;

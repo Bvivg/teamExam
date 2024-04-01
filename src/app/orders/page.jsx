@@ -3,7 +3,7 @@ import { useTheme } from "@/context/ThemeContext";
 import styles from "./style.module.scss";
 import Order from "@/components/UI/Order/Order";
 import PageTitle from "@/components/UI/PageTitle/PageTitle";
-const page = () => {
+const Orders = () => {
   const ordersData = [
     {
       title: "Заказ 1",
@@ -53,4 +53,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Orders;
