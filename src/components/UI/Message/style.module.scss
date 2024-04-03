@@ -9,7 +9,7 @@
   position: relative;
   &Wrapper {
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     gap: 15px;
     &.me {
       flex-direction: row-reverse;
@@ -20,8 +20,8 @@
   }
   &Block {
     display: flex;
-    justify-content: end;
-    align-items: end;
+    justify-content: flex-end;
+    align-items: flex-end;
   }
   &.me {
     color: #fff;

@@ -167,7 +167,7 @@
   }
   .nav {
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
     gap: 10px;
     &_collapse {
       flex-direction: column;
@@ -241,7 +241,7 @@
   }
   .footer {
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
   }
   .payment {
     display: grid;
