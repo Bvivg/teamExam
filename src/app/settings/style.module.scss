@@ -15,7 +15,7 @@
   }
   &Block {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     flex-direction: column;
     &Name {
       font-weight: 600;
@@ -45,7 +45,7 @@
 }
 .changePassword {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   gap: 10px;
   flex-direction: column;
   width: 100%;
@@ -76,7 +76,7 @@
     }
     &Block {
       display: flex;
-      align-items: start;
+      align-items: flex-start;
       flex-direction: column;
       &Name {
         font-weight: 600;

@@ -13,7 +13,7 @@ const Orders = () => {
       price: 100,
       customer: "Клиент 1",
     },
-    {
+    { 
       title: "Заказ 2",
       type: "Тип 2",
       subject: "Предмет 2",
