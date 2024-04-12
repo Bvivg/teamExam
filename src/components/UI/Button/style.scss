@@ -72,16 +72,17 @@ button {
   border-radius: 10px;
   font-weight: 700;
   font-size: 18px;
-
 }
 @media screen and (max-width: 768px) {
   .save {
+    border-radius: 5px;
     padding: 10px 20px;
     color: #fff;
     background: #66b87a;
     border-radius: 10px;
   }
   .primary {
+    border-radius: 5px;
     font-weight: 600;
     &.xl {
       font-size: 12px;
@@ -93,6 +94,7 @@ button {
     }
   }
   .secondary {
+    border-radius: 5px;
     &.xl {
       font-size: 12px;
       padding: 8px 12px;
@@ -103,7 +105,19 @@ button {
     }
   }
   .tertiary {
+    border-radius: 5px;
     font-weight: 600;
+    &.xl {
+      font-size: 12px;
+      padding: 8px 12px;
+    }
+    &.xm {
+      font-size: 10px;
+      padding: 4px 8px;
+    }
+  }
+  .fourth {
+    border-radius: 5px;
     &.xl {
       font-size: 12px;
       padding: 8px 12px;

@@ -10,7 +10,7 @@
   border-radius: 10px;
   &Info {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     flex-direction: column;
     gap: 10px;
     &Block {
@@ -20,7 +20,7 @@
   }
   &Status {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     gap: 10px;
     flex-direction: column;
   }

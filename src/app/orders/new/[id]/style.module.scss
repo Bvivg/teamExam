@@ -8,7 +8,7 @@
   border-radius: 10px;
   &Info {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     gap: 10px;
     flex-direction: column;
   }
@@ -18,7 +18,7 @@
   &Status {
     display: flex;
     flex-direction: column;
-    align-items: end;
+    align-items: flex-end;
   }
 }
 
@@ -57,7 +57,7 @@
 }
 .application {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   gap: 20px;
   flex-direction: column;
   width: 44%;
@@ -114,7 +114,7 @@
   justify-content: space-between;
   width: 100%;
   display: flex;
-  align-items: start;
+  align-items: flex-start;
 }
 @media screen and (max-width: 768px) {
   .feedback {

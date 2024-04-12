@@ -13,7 +13,7 @@
   }
   &State {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     flex-direction: column;
     gap: 14px;
     span {
@@ -48,7 +48,7 @@
   .ticket {
     height: max-content;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
     padding: 10px 20px;
     background: #fff;
     border-radius: 10px;
@@ -57,7 +57,7 @@
     }
     &State {
       display: flex;
-      align-items: start;
+      align-items: flex-start;
       flex-direction: column;
       gap: 14px;
       span {
