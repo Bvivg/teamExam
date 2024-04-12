@@ -40,7 +40,7 @@ const Form = ({ type }) => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            await logIn(authForm);
+            await logIn(authForm).finally(window.location.reload())
             setErrorMessage("");
         } catch (error) {
             setErrorMessage(error);
